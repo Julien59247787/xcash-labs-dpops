@@ -55,7 +55,7 @@ CFLAGS ?= $(INC_FLAGS) $(MongoDB_INC_DIRS) -MMD -MP \
 # Linker flags
 LDFLAGS ?= -lmongoc-1.0 -lbson-1.0 -lresolv -lpthread -l:libcrypto.so.3 -lcurl -lcjson \
   $(shell pkg-config --libs libunbound 2>/dev/null || echo -lunbound) \
-  -pie -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack
+  -pie -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -lz -L/usr/local/lib
 
 # Build configurations
 debug: CFLAGS += -g -fno-stack-protector
